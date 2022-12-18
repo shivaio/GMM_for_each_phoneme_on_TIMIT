@@ -1,0 +1,39 @@
+Trained GMM model on TIMIT dataset for following scenarios -
+1. Train the GMM a) for MFCC (13), b) MFCC + Delta MFCC (26), c) MFCC + Delta + Delta-Delta and all the (a), (b), (c) i) with and ii) without energy coefficient (zeroeth coefficient and corresponding 14th coeff, and 27th coeff) - all for one size of GMM (64)
+2. Train the GMM with different number of mixtures only for Case (a)(ii) - (2, 4, 8, 16, 32, 64,128,256)
+
+Tested each test file to calculate frame level accuracy using following GMM models -
+1. MFCC features without energy coefficient and GMM model with no. of mixtures 2, 4, 8, 16, 32, 64, 128 and 256
+2. MFCC features with energy coefficient and GMM model with 64 mixtures.
+
+Took average of frame level accuracy of all test files for each of the above scenarios. The results are as follows -
+Accuracy for GMM with 2 mixtures:  2.520850162933916 %
+Accuracy for GMM with 4 mixtures:  2.3258566525441404 %
+Accuracy for GMM with 8 mixtures:  2.4912475829840477 %
+Accuracy for GMM with 16 mixtures:  2.20157864981258 %
+Accuracy for GMM with 32 mixtures:  2.7243270682726677 %
+Accuracy for GMM with 64 mixtures:  2.281282773357212 %
+Accuracy for GMM with 128 mixtures:  3.735437599524438 %
+Accuracy for GMM with 256 mixtures:  3.8271399584078325 %
+Accuracy for GMM with 64 mixtures and mfcc features with energy coeff:  14.235578344131028 %
+
+The GMM model with 64 mixtures and with features having energy coefficient gave the maximum avergae Frame Level Accuracy = 14.23%.
+
+Tested each test file to calculate PER (Phoneme Error Rate) using following GMM models -
+1. MFCC features without energy coefficient and GMM model with no. of mixtures 2, 4, 8, 16, 32, 64, 128 and 256
+2. MFCC features with energy coefficient and GMM model with 64 mixtures.
+Used asr-evaluation to calculate WER (Word Error Rate).
+
+The results are as follows -
+WER for GMM with 2 mixtures:   98.095% 
+WER for GMM with 4 mixtures:   98.293%
+WER for GMM with 8 mixtures:   98.082%
+WER for GMM with 16 mixtures:  98.443% 
+WER for GMM with 32 mixtures:  98.049%
+WER for GMM with 64 mixtures:  98.653% 
+WER for GMM with 128 mixtures: 96.239%
+WER for GMM with 256 mixtures: 96.191%
+WER for GMM with 64 mixtures and mfcc features with energy coeff: 86.457%
+
+WER decreases as we increase the number of mixtures in GMM. 
+The GMM model with 64 mixtures and with features having energy coefficient gave the minimum WER = 86.457%.

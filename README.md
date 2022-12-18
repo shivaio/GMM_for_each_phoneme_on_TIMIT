@@ -1,4 +1,4 @@
-# ASR-GMM
+# GMM for each phoneme
 Build a GMM for TIMIT dataset with different mixtures such as 2,4,8,16,32,64,256
 
 Steps to Run:
